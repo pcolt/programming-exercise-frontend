@@ -1,3 +1,20 @@
+The front-end part for a simple application displaying cat's gifs.  
+Back-end part is at [programming-exercise-backend](https://github.com/pcolt/programming-exercise-backend).
+
+### Installation
+
+- `git clone` the repository on your local machine in a different folder than front-end part
+- run `npm install` to install all dependencies
+
+### Usage
+
+- `npm start` to start up the app
+
+To display a cat's gif open a browser tab at http://localhost:3000/images/3.gif or different number (i.e. .../4.gif)
+<br />
+<br />
+<br />  
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
