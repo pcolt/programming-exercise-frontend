@@ -1,33 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 const ImageGallery = () => {
-  const [randomImage, setRandomImage] = useState(null);
+  const [imageSrc, setImageSrc] = useState('');
+  const { imageName } = useParams(); // Get the image name from URL parameter
 
-  const fetchRandomImage = () => {
-    fetch('http://localhost:3010/images/2.gif')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.blob();
-      })
-      .then(blob => {
-        const imageUrl = URL.createObjectURL(blob);
-        setRandomImage(imageUrl);
-      })
-      .catch(error => {
-        console.error('Error fetching random image:', error);
-      });
-  };
+  useEffect(() => {
+    if (imageName) {
+      fetch(`http://localhost:3010/images/${imageName}`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.blob();
+        })
+        .then(blob => {
+          const imageUrl = URL.createObjectURL(blob);
+          setImageSrc(imageUrl);
+        })
+        .catch(error => {
+          console.error('Error fetching image:', error);
+        });
+    }
+  }, [imageName]);
 
   return (
     <div>
-      <h1>Random Image Gallery</h1>
-      <button onClick={fetchRandomImage}>Get Random Image</button>
-      {randomImage && <img src={randomImage} alt="Random Image" />}
+      <h1>Image Gallery</h1>
+      {imageSrc && <img src={imageSrc} alt={imageName} />}
     </div>
   );
 };
 
 export default ImageGallery;
-

@@ -1,14 +1,18 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ImageGallery from './ImageGallery';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <ImageGallery />
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path="/images/:imageName" component={ImageGallery} />
+        </Switch>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
 
