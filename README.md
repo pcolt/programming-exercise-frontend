@@ -10,7 +10,7 @@ Back-end part is at [programming-exercise-backend](https://github.com/pcolt/prog
 
 - `npm start` to start up the app
 
-To display a cat's gif open a browser tab at http://localhost:3000/images/3.gif or different number (i.e. .../4.gif)
+- Open the Home of this little app at http://localhost:3000/ and follow the links to the cat's gifs to display them
 <br />
 <br />
 <br />  
